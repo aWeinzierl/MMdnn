@@ -51,7 +51,7 @@ networks_map = {
     'inception_v1'  : lambda : inception.inception_v1,
     'inception_v2'  : lambda : inception.inception_v2,
     'inception_v3'  : lambda : inception.inception_v3,
-    'inception_v4'  : lambda : inception_v4,
+    'inception_v4'  : lambda : inception_v4.inception_v4,
     'resnet_v1_101' : lambda : resnet_v1.resnet_v1_101,
     'resnet50'      : lambda : resnet_v2.resnet_v2_50,
     'resnet101'     : lambda : resnet_v2.resnet_v2_101,
