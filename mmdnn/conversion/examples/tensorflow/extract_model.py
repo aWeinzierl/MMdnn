@@ -14,7 +14,7 @@ from mmdnn.conversion.examples.imagenet_test import TestKit
 
 slim = tf.contrib.slim
 
-import tensorflow_model_script
+from tensorflow_model_script import inception_v4
 
 input_layer_map = {
     'vgg16'         : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
@@ -51,7 +51,7 @@ networks_map = {
     'inception_v1'  : lambda : inception.inception_v1,
     'inception_v2'  : lambda : inception.inception_v2,
     'inception_v3'  : lambda : inception.inception_v3,
-    'inception_v4'  : lambda : tensorflow_model_script.inception_v4,
+    'inception_v4'  : lambda : inception_v4,
     'resnet_v1_101' : lambda : resnet_v1.resnet_v1_101,
     'resnet50'      : lambda : resnet_v2.resnet_v2_50,
     'resnet101'     : lambda : resnet_v2.resnet_v2_101,
