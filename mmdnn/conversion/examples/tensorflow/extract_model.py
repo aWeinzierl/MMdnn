@@ -14,7 +14,7 @@ from mmdnn.conversion.examples.imagenet_test import TestKit
 
 slim = tf.contrib.slim
 
-from tf.tensorflow_model_script import inception_v4
+from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import inception_v4
 
 input_layer_map = {
     'vgg16'         : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
