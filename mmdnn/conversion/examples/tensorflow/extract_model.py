@@ -16,6 +16,9 @@ slim = tf.contrib.slim
 
 from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import inception_v4
 from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import mobilenet_v1
+from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import nasnet
+from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import inception_resnet_v2
+
 
 input_layer_map = {
     'vgg16'                 : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
@@ -30,6 +33,9 @@ input_layer_map = {
     'resnet152'             : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),
     'resnet200'             : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),    
     'mobilenet_v1_0.25'     : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
+    'mobilenet_v1_1_0'      : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
+    'inception_resnet_v2'   : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),
+    'nasnet_a_mobile'       : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),
 }
 
 arg_scopes_map = {
@@ -45,7 +51,9 @@ arg_scopes_map = {
     'resnet152'             : resnet_v2.resnet_arg_scope,
     'resnet200'             : resnet_v2.resnet_arg_scope,
     'mobilenet_v1_0.25'     : mobilenet_v1.mobilenet_v1_arg_scope,
-    # 'mobilenet_v1': mobilenet_v1.mobilenet_v1_arg_scope,
+    'mobilenet_v1_1_0'	    : mobilenet_v1.mobilenet_v1_arg_scope,
+    'inception_resnet_v2'   : inception_resnet_v2.inception_resnet_v2_arg_scope,
+    'nasnet_a_mobile'       : nasnet.nasnet_mobile_arg_scope
 }
 
 networks_map = {
@@ -61,7 +69,9 @@ networks_map = {
     'resnet152'         : lambda : resnet_v2.resnet_v2_152,
     'resnet200'         : lambda : resnet_v2.resnet_v2_200,
     'mobilenet_v1_0.25' : lambda : mobilenet_v1.mobilenet_v1_025,
-    #'mobilenet_v1' : mobilenet_v1.mobilenet_v1,
+    'mobilenet_v1_1_0' 	: lambda : mobilenet_v1.mobilenet_v1,
+    'inception_resnet_v2': lambda : inception_resnet_v2.inception_resnet_v2,
+    'nasnet_a_mobile'   : lambda : nasnet.build_nasnet_mobile
 }
 
 def _main():
