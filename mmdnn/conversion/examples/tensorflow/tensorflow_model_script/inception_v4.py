@@ -26,7 +26,7 @@ from __future__ import print_function
 
 import tensorflow as tf
 
-import inception_utils
+from mmdnn.conversion.examples.tensorflow.tensorflow_model_script import inception_utils
 
 slim = tf.contrib.slim
 
