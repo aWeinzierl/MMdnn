@@ -35,7 +35,8 @@ input_layer_map = {
     'mobilenet_v1_0.25'     : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
     'mobilenet_v1_1_0'      : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
     'inception_resnet_v2'   : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),
-    'nasnet_a_mobile'       : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 299, 299, 3]),
+    'nasnet_a_mobile'       : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 224, 224, 3]),
+    'nasnet_a_large'        : lambda : tf.placeholder(name='input', dtype=tf.float32, shape=[None, 331, 331, 3])
 }
 
 arg_scopes_map = {
@@ -53,7 +54,8 @@ arg_scopes_map = {
     'mobilenet_v1_0.25'     : mobilenet_v1.mobilenet_v1_arg_scope,
     'mobilenet_v1_1_0'	    : mobilenet_v1.mobilenet_v1_arg_scope,
     'inception_resnet_v2'   : inception_resnet_v2.inception_resnet_v2_arg_scope,
-    'nasnet_a_mobile'       : nasnet.nasnet_mobile_arg_scope
+    'nasnet_a_mobile'       : nasnet.nasnet_mobile_arg_scope,
+    'nasnet_a_large'        : nasnet.nasnet_large_arg_scope
 }
 
 networks_map = {
@@ -71,7 +73,8 @@ networks_map = {
     'mobilenet_v1_0.25' : lambda : mobilenet_v1.mobilenet_v1_025,
     'mobilenet_v1_1_0' 	: lambda : mobilenet_v1.mobilenet_v1,
     'inception_resnet_v2': lambda : inception_resnet_v2.inception_resnet_v2,
-    'nasnet_a_mobile'   : lambda : nasnet.build_nasnet_mobile
+    'nasnet_a_mobile'   : lambda : nasnet.build_nasnet_mobile,
+    'nasnet_a_large'    : lambda : nasnet.build_nasnet_large
 }
 
 def _main():

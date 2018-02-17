@@ -11,6 +11,7 @@ Basically it converts many DNN models that trained by one framework into others.
 - **Model Visualization** Visualizing DNN network architecture and parameters for frameworks
 - **Model compatibility testing** (On-going)
 
+
 ## Installation
 
 You can get stable version of MMdnn by
@@ -43,7 +44,7 @@ We provide a model converter to help developers convert models between framework
 - [Tensorflow](https://github.com/Microsoft/MMdnn/blob/master/mmdnn/conversion/tensorflow/README.md) (Experimental) (Highly recommend you read the README of tensorflow firstly)
 - [Microsoft Cognitive Toolkit (CNTK)](https://github.com/Microsoft/MMdnn/blob/master/mmdnn/conversion/cntk/README.md) (Destination only)
 - [PyTorch](https://github.com/Microsoft/MMdnn/blob/master/mmdnn/conversion/pytorch/README.md) (Destination only)
-- CoreML (Experimental, Destination only)
+- [CoreML](https://github.com/Microsoft/MMdnn/blob/master/mmdnn/conversion/coreml/README.md) (Experimental, Destination only)
 
 #### Tested models
 
@@ -51,15 +52,15 @@ The model conversion between current supported frameworks is tested on some **Im
 
 Models                                              | Caffe | Keras | Tensorflow | CNTK | MXNet |   PyTorch  | CoreML
 :--------------------------------------------------:|:-----:|:-----:|:----------:|:----:|:-----:|:----------:|:------:|
-[Inception V1](http://arxiv.org/abs/1409.4842v1)    |   √   |   √   |     √      |   √  |   √   | x (No LRN)
-[Inception V3](http://arxiv.org/abs/1512.00567)     |   ×   |   √   |     √      |   √  |   √   |    √
+[Inception V1](http://arxiv.org/abs/1409.4842v1)    |   √   |   √   |     √      |   √  |   √   | x (No LRN) | √
+[Inception V3](http://arxiv.org/abs/1512.00567)     |   ×   |   √   |     √      |   √  |   √   |    √ | √
 [Inception V4](http://arxiv.org/abs/1512.00567)     |   √   |       |            |      |       |
-[ResNet V1 50](https://arxiv.org/abs/1512.03385)    |   ×   |   √   |     √      |   o  |   √   |    √
+[ResNet V1 50](https://arxiv.org/abs/1512.03385)    |   ×   |   √   |     √      |   o  |   √   |    √ | √
 [ResNet V2 152](https://arxiv.org/abs/1603.05027)   |   √   |   √   |     √      |   √  |   √   |    √
 [VGG 19](http://arxiv.org/abs/1409.1556.pdf)        |   √   |   √   |     √      |   √  |   √   |    √       |    √
-[MobileNet_v1](https://arxiv.org/pdf/1704.04861.pdf)|   ×   |   √   |     √      | × (No Relu6) | × | ×
+[MobileNet_v1](https://arxiv.org/pdf/1704.04861.pdf)|   ×   |   √   |     √      | × (No Relu6) | × | × | √
 [Xception](https://arxiv.org/pdf/1610.02357.pdf)    |   ×   |   √   |     √      |   ×  |   ×   |    ×
-[SqueezeNet](https://arxiv.org/pdf/1602.07360)      |       |   √   |     √      |   √  |   √   |    ×
+[SqueezeNet](https://arxiv.org/pdf/1602.07360)      |   √   |   √   |     √      |   √  |   √   |    ×
 
 #### On-going frameworks
 
@@ -73,7 +74,7 @@ Models                                              | Caffe | Keras | Tensorflow
 
 You can use the [MMdnn model visualizer](http://mmdnn.eastasia.cloudapp.azure.com:8080/) and submit your IR json file to visualize your model.
 
-Use the [Keras "inception_v3" model] as an example again.
+Use the [Keras "inception_v3" model](https://github.com/fchollet/deep-learning-models) as an example again.
 
 1. Download the pre-trained models
 
@@ -103,7 +104,7 @@ python3 -m mmdnn.conversion._script.convertToIR -f keras -d keras_inception_v3 -
 - [Caffe "AlexNet" to Tensorflow](https://github.com/Microsoft/MMdnn/issues/10)
 - [Caffe "inception_v4" to Tensorflow](https://github.com/Microsoft/MMdnn/issues/26)
 - [Caffe "VGG16_SOD" to Tensorflow](https://github.com/Microsoft/MMdnn/issues/27)
-
+- [Caffe "Squeezenet v1.1" to CNTK](https://github.com/Microsoft/MMdnn/issues/48)
 ---
 
 ## Contributing
